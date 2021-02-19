@@ -1,0 +1,10 @@
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.exe.config
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.exe
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.pdb
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Form1.resources
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Properties.Resources.resources
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.exe
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.pdb
