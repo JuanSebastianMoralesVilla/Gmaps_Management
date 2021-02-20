@@ -51,7 +51,7 @@ namespace Gmaps_Management
             points = new List<PointLatLng>();
 
             //Ubicacion del archivo a cargar
-            path = @"E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\Data";
+            path = @"..\..\Data";
 
 
         }
