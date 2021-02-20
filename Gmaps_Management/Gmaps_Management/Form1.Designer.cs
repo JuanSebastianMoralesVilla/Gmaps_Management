@@ -33,6 +33,8 @@ namespace Gmaps_Management
             this.txloadFile = new System.Windows.Forms.TextBox();
             this.txBoxload2 = new System.Windows.Forms.TextBox();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -67,7 +69,7 @@ namespace Gmaps_Management
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemmory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(412, 110);
+            this.gMapControl1.Location = new System.Drawing.Point(837, 237);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -81,21 +83,32 @@ namespace Gmaps_Management
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(579, 474);
+            this.gMapControl1.Size = new System.Drawing.Size(154, 347);
             this.gMapControl1.TabIndex = 3;
             this.gMapControl1.Zoom = 0D;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 205);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(797, 379);
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 632);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gMapControl1);
             this.Controls.Add(this.txBoxload2);
             this.Controls.Add(this.txloadFile);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,6 +120,7 @@ namespace Gmaps_Management
         private System.Windows.Forms.TextBox txloadFile;
         private System.Windows.Forms.TextBox txBoxload2;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

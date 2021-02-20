@@ -8,3 +8,6 @@ C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Deb
 C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CoreCompileInputs.cache
 C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.exe
 C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.pdb
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.Core.dll
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CopyComplete
