@@ -35,6 +35,9 @@ namespace Gmaps_Management
             this.gMap = new GMap.NET.WindowsForms.GMapControl();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btMunicipios = new System.Windows.Forms.Button();
+            this.btClear = new System.Windows.Forms.Button();
+            this.cbFilter1 = new System.Windows.Forms.ComboBox();
+            this.cbCategories = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,7 +45,7 @@ namespace Gmaps_Management
             // 
             this.button1.Location = new System.Drawing.Point(22, 22);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 72);
+            this.button1.Size = new System.Drawing.Size(176, 32);
             this.button1.TabIndex = 0;
             this.button1.Text = "Cargar Archivo";
             this.button1.UseVisualStyleBackColor = true;
@@ -94,7 +97,7 @@ namespace Gmaps_Management
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 205);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(467, 388);
+            this.dataGridView1.Size = new System.Drawing.Size(501, 420);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -108,11 +111,46 @@ namespace Gmaps_Management
             this.btMunicipios.UseVisualStyleBackColor = true;
             this.btMunicipios.Click += new System.EventHandler(this.button2_Click);
             // 
+            // btClear
+            // 
+            this.btClear.Location = new System.Drawing.Point(797, 164);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(75, 23);
+            this.btClear.TabIndex = 6;
+            this.btClear.Text = "Limpiar";
+            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // cbFilter1
+            // 
+            this.cbFilter1.FormattingEnabled = true;
+            this.cbFilter1.Items.AddRange(new object[] {
+            "1.Categorico",
+            "2.Cadena",
+            "3.Numerico"});
+            this.cbFilter1.Location = new System.Drawing.Point(60, 124);
+            this.cbFilter1.Name = "cbFilter1";
+            this.cbFilter1.Size = new System.Drawing.Size(186, 21);
+            this.cbFilter1.TabIndex = 7;
+            this.cbFilter1.SelectedIndexChanged += new System.EventHandler(this.cbFilter1_SelectedIndexChanged);
+            // 
+            // cbCategories
+            // 
+            this.cbCategories.FormattingEnabled = true;
+            this.cbCategories.Location = new System.Drawing.Point(60, 166);
+            this.cbCategories.Name = "cbCategories";
+            this.cbCategories.Size = new System.Drawing.Size(186, 21);
+            this.cbCategories.TabIndex = 8;
+            this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategories_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 632);
+            this.ClientSize = new System.Drawing.Size(1160, 654);
+            this.Controls.Add(this.cbCategories);
+            this.Controls.Add(this.cbFilter1);
+            this.Controls.Add(this.btClear);
             this.Controls.Add(this.btMunicipios);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.gMap);
@@ -135,6 +173,9 @@ namespace Gmaps_Management
         private GMap.NET.WindowsForms.GMapControl gMap;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btMunicipios;
+        private System.Windows.Forms.Button btClear;
+        private System.Windows.Forms.ComboBox cbFilter1;
+        private System.Windows.Forms.ComboBox cbCategories;
     }
 }
 

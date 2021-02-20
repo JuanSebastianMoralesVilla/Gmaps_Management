@@ -155,5 +155,24 @@ namespace Gmaps_Management
 
             }
         }
+
+        // limpiar elementos de gmaps
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            markers.Clear();
+        }
+
+        private void cbFilter1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbFilter1.Visible = false;
+        }
+
+        private void cb_initialization()
+        {
+            for (int i =0; i < colombia; i++)
+            {
+                
+            }
+        }
     }
 }

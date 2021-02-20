@@ -8,38 +8,36 @@ namespace Gmaps_Management.Class
 {
     public class Country {
 
-        private List<Departament> departaments { get; set; }
+        private List<Departament> regions { get; set; }
         public int size { get; set; }
 
 
         public Country() {
-            departaments = new List<Departament>();
+            regions = new List<Departament>();
             size = 0;
         }
 
 
         public void add(string nameTown, int idTown, string nameDepartament,int idDept, int cantPeople, string covid, int cantConfirm, string region)
         {
-            Departament dept = null;
+            Region region = null;
           
             for (int i = 0; i < size; i++)
             {
-                if (departaments.ElementAt(i).id == idDept)
+                if (regions.ElementAt(i).id == idDept)
                 {
-                    dept= departaments.ElementAt(i);
+                    region = regions.ElementAt(i);
                     break;
                 }
             }
-
-
-            if (dept == null)
+            if (region == null)
             {
-                dept = new Departament(nameDepartament,idDept);
-                departaments.Add(dept);
+                region = new Departament(nameDepartament,idDept);
+                regions.Add(region);
                 size++;
             }
 
-            dept.add(nameTown,idTown,cantPeople,covid,cantConfirm,region);
+            region.add(nameTown,idTown,cantPeople,covid,cantConfirm);
         }
     }
 

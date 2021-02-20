@@ -25,8 +25,8 @@ namespace Gmaps_Management.Class
             this.id= id;
             size = 0;
         }
-        public void add(string nameTown, int id, int cantPeople, string covid, int cantConfirm, string region) {
-            Town town = new Town(nameTown, id, cantPeople, covid, cantConfirm, region);
+        public void add(string nameTown, int id, int cantPeople, string covid, int cantConfirm) {
+            Town town = new Town(nameTown, id, cantPeople, covid, cantConfirm);
             towns.Add(town);
             size++;
         }

@@ -17,16 +17,13 @@ namespace Gmaps_Management.Class
 
         public int cantConfirm { get; set; }
 
-        public string region { get; set; }
-
-        public Town(string nameTown, int id, int cantPeople, string covid, int cantConfirm, String region)
+        public Town(string nameTown, int id, int cantPeople, string covid, int cantConfirm)
         {
             this.nameTown = nameTown;
             this.id = id;
             this.cantPeople = cantPeople;
             this.covid = covid;
             this.cantConfirm = cantConfirm;
-            this.region = region;
         }
     }
 }
