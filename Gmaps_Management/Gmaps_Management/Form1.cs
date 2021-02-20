@@ -1,4 +1,8 @@
-﻿using Gmaps_Management.Class;
+﻿using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+using Gmaps_Management.Class;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,21 +22,43 @@ namespace Gmaps_Management
     public partial class Form1 : Form
     {
 
+
+
         // ruta del archivo
         private string path;
-       
+       // pais
+
         private Country colombia;
+        // data mostrar municipios
+
+        private AllTowns data;
+
+
+        // capas y listas (marcadores, puntos)
+
+        private List<PointLatLng> points;      //marcadores
+        GMapOverlay markers = new GMapOverlay("markers");   //capa de marcadores
+
+
+
 
         public Form1()
         {
+            InitializeComponent();
             colombia = new Country();
+            data = new AllTowns();
+            points = new List<PointLatLng>();
+
             //Ubicacion del archivo a cargar
             path = @"C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\Data";
-            InitializeComponent();
+         
             
         }
 
         OpenFileDialog file = new OpenFileDialog();
+
+      
+
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -98,6 +124,36 @@ namespace Gmaps_Management
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void gMapControl1_Load(object sender, EventArgs e)
+        {
+            gMap.MapProvider = GoogleMapProvider.Instance;
+            GMaps.Instance.Mode = AccessMode.ServerOnly;
+
+            gMap.Position = new PointLatLng(3.42158, -75.7643);
+
+            gMap.Overlays.Add(markers);
+
+        }
+
+        // boton para que aparezcan los municipios
+        private void button2_Click(object sender, EventArgs e)
+        {
+            List<String> lista = data.getListTowns();
+            foreach (string f in lista) {
+
+                GeoCoderStatusCode statusCode;
+                PointLatLng? point = OpenStreet4UMapProvider.Instance.GetPoint(f, out statusCode);
+
+                if (point != null) {
+                    GMapMarker marker00 = new GMarkerGoogle(new PointLatLng (point.Value.Lat, point.Value.Lng),GMarkerGoogleType.blue_dot);
+                        marker00.ToolTipText = f + "\n " + point.Value.Lat + "\n" + point.Value.Lng;
+                    markers.Markers.Add(marker00);
+
+                }
+
+            }
         }
     }
 }

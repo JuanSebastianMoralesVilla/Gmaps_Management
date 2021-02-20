@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +25,9 @@ namespace Gmaps_Management.Class
 
         public string region { get; set; }
 
+        private const String path = "C:\\Users\\user\\Desktop\\Gmaps_Management\\Gmaps_Management\\Gmaps_Management\\Data\\Colombia_COVID19_Coronavirus_Municipio.csv";
+         List<String> listTowns;
+       
         public AllTowns(string nameTown, int idTown, string nameDepartament,int idDept, int cantPeople, string covid, int cantConfirm, string region)
         {
             this.nameTown = nameTown;
@@ -34,6 +38,13 @@ namespace Gmaps_Management.Class
             this.covid = covid;
             this.cantConfirm = cantConfirm;
             this.region = region;
+            
+        }
+
+        public AllTowns()
+        {
+            listTowns = new List<String>();
+            visualizationTown();
         }
 
         // to string
@@ -41,5 +52,24 @@ namespace Gmaps_Management.Class
         { 
         return nameTown + "" + idTown+ ""+ nameDepartament + ""+ ""+ idDept+ + cantPeople + " "+ covid + " " + cantConfirm + " " + region;
         }
+
+
+        private void visualizationTown() {
+            var reader = new StreamReader(File.OpenRead(path));
+            int count = 0;
+            while (!reader.EndOfStream && count < 100) {
+                var line = reader.ReadLine();
+                var array = line.Split(';');
+                listTowns.Add(array[0] + ", Colombia");
+                count++;
+
+            }
+        }
+        public List<String> getListTowns() {
+            return listTowns;
+        
+        }
+
+
     }
 }

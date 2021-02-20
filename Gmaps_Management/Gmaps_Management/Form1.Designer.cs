@@ -32,8 +32,9 @@ namespace Gmaps_Management
             this.button1 = new System.Windows.Forms.Button();
             this.txloadFile = new System.Windows.Forms.TextBox();
             this.txBoxload2 = new System.Windows.Forms.TextBox();
-            this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
+            this.gMap = new GMap.NET.WindowsForms.GMapControl();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btMunicipios = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,58 +52,70 @@ namespace Gmaps_Management
             // 
             this.txloadFile.Location = new System.Drawing.Point(222, 22);
             this.txloadFile.Name = "txloadFile";
-            this.txloadFile.Size = new System.Drawing.Size(490, 20);
+            this.txloadFile.Size = new System.Drawing.Size(382, 20);
             this.txloadFile.TabIndex = 1;
             // 
             // txBoxload2
             // 
             this.txBoxload2.Location = new System.Drawing.Point(222, 74);
             this.txBoxload2.Name = "txBoxload2";
-            this.txBoxload2.Size = new System.Drawing.Size(490, 20);
+            this.txBoxload2.Size = new System.Drawing.Size(382, 20);
             this.txBoxload2.TabIndex = 2;
             // 
-            // gMapControl1
+            // gMap
             // 
-            this.gMapControl1.Bearing = 0F;
-            this.gMapControl1.CanDragMap = true;
-            this.gMapControl1.EmptyTileColor = System.Drawing.Color.Navy;
-            this.gMapControl1.GrayScaleMode = false;
-            this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.gMapControl1.LevelsKeepInMemmory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(837, 237);
-            this.gMapControl1.MarkersEnabled = true;
-            this.gMapControl1.MaxZoom = 2;
-            this.gMapControl1.MinZoom = 2;
-            this.gMapControl1.MouseWheelZoomEnabled = true;
-            this.gMapControl1.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.gMapControl1.Name = "gMapControl1";
-            this.gMapControl1.NegativeMode = false;
-            this.gMapControl1.PolygonsEnabled = true;
-            this.gMapControl1.RetryLoadTile = 0;
-            this.gMapControl1.RoutesEnabled = true;
-            this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(154, 347);
-            this.gMapControl1.TabIndex = 3;
-            this.gMapControl1.Zoom = 0D;
+            this.gMap.Bearing = 0F;
+            this.gMap.CanDragMap = true;
+            this.gMap.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMap.GrayScaleMode = false;
+            this.gMap.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMap.LevelsKeepInMemmory = 5;
+            this.gMap.Location = new System.Drawing.Point(589, 205);
+            this.gMap.MarkersEnabled = true;
+            this.gMap.MaxZoom = 20;
+            this.gMap.MinZoom = 2;
+            this.gMap.MouseWheelZoomEnabled = true;
+            this.gMap.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMap.Name = "gMap";
+            this.gMap.NegativeMode = false;
+            this.gMap.PolygonsEnabled = true;
+            this.gMap.RetryLoadTile = 0;
+            this.gMap.RoutesEnabled = true;
+            this.gMap.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMap.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMap.ShowTileGridLines = false;
+            this.gMap.Size = new System.Drawing.Size(549, 420);
+            this.gMap.TabIndex = 3;
+            this.gMap.Zoom = 13D;
+            this.gMap.Load += new System.EventHandler(this.gMapControl1_Load);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 205);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(797, 379);
+            this.dataGridView1.Size = new System.Drawing.Size(467, 388);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btMunicipios
+            // 
+            this.btMunicipios.Location = new System.Drawing.Point(998, 165);
+            this.btMunicipios.Name = "btMunicipios";
+            this.btMunicipios.Size = new System.Drawing.Size(140, 23);
+            this.btMunicipios.TabIndex = 5;
+            this.btMunicipios.Text = "Mostrar Municipios";
+            this.btMunicipios.UseVisualStyleBackColor = true;
+            this.btMunicipios.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 632);
+            this.ClientSize = new System.Drawing.Size(1160, 632);
+            this.Controls.Add(this.btMunicipios);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.gMapControl1);
+            this.Controls.Add(this.gMap);
             this.Controls.Add(this.txBoxload2);
             this.Controls.Add(this.txloadFile);
             this.Controls.Add(this.button1);
@@ -119,8 +132,9 @@ namespace Gmaps_Management
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txloadFile;
         private System.Windows.Forms.TextBox txBoxload2;
-        private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private GMap.NET.WindowsForms.GMapControl gMap;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btMunicipios;
     }
 }
 
