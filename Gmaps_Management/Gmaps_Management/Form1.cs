@@ -88,28 +88,41 @@ namespace Gmaps_Management
                 List<AllTowns> towns = new List<AllTowns>();
                 while (!string.IsNullOrEmpty(line))
                 {
-                    string[] array = line.Split(';');
-                    string nameTown = (array[0]);
-                    int idTown = Int32.Parse(array[1]);
-                    string nameDepartament = (array[2]);
-                    int idDept = Int32.Parse(array[3]);
-                    int cantPeople = Int32.Parse(array[4]);
-                    string covid = (array[5]);
-                    int cantConfirm = Int32.Parse(array[6]);
-                    string region = (array[7]);
-                    AllTowns all = new AllTowns(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
+                    try
+                    {
+                        string[] array = line.Split(',');
+                        string nameTown = (array[0]);
+                        int idTown = Int32.Parse(array[1]);
+                        string nameDepartament = (array[2]);
+                        int idDept = Int32.Parse(array[3]);
+                        int cantPeople = Int32.Parse(array[4]);
+                        string covid = (array[5]);
+                        int cantConfirm = Int32.Parse(array[6]);
+                        string region = (array[7]);
 
-                    colombia.add(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
+                        AllTowns all = new AllTowns(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
 
-                    //Console.WriteLine(all.ToString());
+                        colombia.add(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
 
-                    towns.Add(all);
+                        //Console.WriteLine(all.ToString());
+
+                        towns.Add(all);
+                        
+                    }
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine("Line is empty");
+                    }
                     line = reader.ReadLine();
+
                 }
                 dataGridView1.DataSource = towns;
+                
+
             }
             catch (Exception alm)
             {
+                
                 Console.WriteLine(alm.ToString());
             }
 

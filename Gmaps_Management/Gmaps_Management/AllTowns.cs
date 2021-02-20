@@ -60,7 +60,7 @@ namespace Gmaps_Management.Class
             int count = 0;
             while (!reader.EndOfStream && count < 100) { 
                 var line = reader.ReadLine();
-                var array = line.Split(';');
+                var array = line.Split(',');
                 listTowns.Add(array[0] +", "+ array[2] + ", COLOMBIA");
                 count++;
             }
