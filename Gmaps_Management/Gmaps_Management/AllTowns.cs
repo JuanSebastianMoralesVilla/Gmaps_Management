@@ -58,7 +58,7 @@ namespace Gmaps_Management.Class
         private void visualizationTown() {
             var reader = new StreamReader(File.OpenRead(path));
             int count = 0;
-            while (!reader.EndOfStream && count < 150) { 
+            while (!reader.EndOfStream && count < 100) { 
                 var line = reader.ReadLine();
                 var array = line.Split(';');
                 listTowns.Add(array[0] +", "+ array[2] + ", COLOMBIA");
