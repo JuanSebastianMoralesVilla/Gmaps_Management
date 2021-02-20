@@ -60,7 +60,7 @@ namespace Gmaps_Management
                 List<AllTowns> towns = new List<AllTowns>();
                 while (!string.IsNullOrEmpty(line))
                 {
-                    string[] array = line.Split(',');
+                    string[] array = line.Split(';');
                     string nameTown = (array[0]);
                     int idTown = Int32.Parse(array[1]);
                     string nameDepartament = (array[2]);

@@ -11,3 +11,16 @@ C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Deb
 C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.Core.dll
 C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.WindowsForms.dll
 C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CopyComplete
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csprojAssemblyReference.cache
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Form1.resources
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Properties.Resources.resources
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.GenerateResource.cache
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CoreCompileInputs.cache
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.exe
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.pdb
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.exe.config
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.exe
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.pdb
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.Core.dll
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.WindowsForms.dll
+E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CopyComplete
