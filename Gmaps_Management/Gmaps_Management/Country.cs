@@ -6,40 +6,42 @@ using System.Threading.Tasks;
 
 namespace Gmaps_Management.Class
 {
-    public class Country {
+    public class Country
+    {
 
-        private List<Departament> regions { get; set; }
+        private List<Region> regions;
         public int size { get; set; }
 
-
-        public Country() {
-            regions = new List<Departament>();
+        public Country()
+        {
+            regions = new List<Region>();
             size = 0;
         }
 
 
-        public void add(string nameTown, int idTown, string nameDepartament,int idDept, int cantPeople, string covid, int cantConfirm, string region)
+        public void add(string nameTown, int idTown, string nameDepartament, int idDept, int cantPeople, string covid, int cantConfirm, string region)
         {
-            Region region = null;
-          
+            Region region1 = null;
+
             for (int i = 0; i < size; i++)
             {
-                if (regions.ElementAt(i).id == idDept)
+                if (regions.ElementAt(i).name.Equals(region))
                 {
-                    region = regions.ElementAt(i);
+                    region1 = regions.ElementAt(i);
                     break;
                 }
             }
-            if (region == null)
+            if (region1 == null)
             {
-                region = new Departament(nameDepartament,idDept);
-                regions.Add(region);
+                region1 = new Region(region);
+                regions.Add(region1);
                 size++;
             }
 
-            region.add(nameTown,idTown,cantPeople,covid,cantConfirm);
+            region1.add(nameTown, idTown, nameDepartament, idDept, cantPeople,covid,cantConfirm);
         }
+
     }
 
-    
+
 }

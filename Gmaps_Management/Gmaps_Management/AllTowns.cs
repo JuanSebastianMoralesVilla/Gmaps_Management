@@ -25,7 +25,7 @@ namespace Gmaps_Management.Class
 
         public string region { get; set; }
 
-        private const String path = "..\\..\\..\\Data\\Colombia_COVID19_Coronavirus_Municipio.csv";
+        private const String path = @"E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\Data\Colombia_COVID19_Coronavirus_Municipio.csv";
          List<String> listTowns;
        
         public AllTowns(string nameTown, int idTown, string nameDepartament,int idDept, int cantPeople, string covid, int cantConfirm, string region)
@@ -66,6 +66,7 @@ namespace Gmaps_Management.Class
             }
         }
         public List<String> getListTowns() {
+            
             return listTowns;
             
         }

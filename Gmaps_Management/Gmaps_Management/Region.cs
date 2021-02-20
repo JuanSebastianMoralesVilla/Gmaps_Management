@@ -16,15 +16,15 @@ namespace Gmaps_Management
         public Region(string region)
         {
             name = region;
-            departaments = new List<>();
+            departaments = new List<Departament>();
         }
-        public void add(string nameTown, int id, int cantPeople, string covid, int cantConfirm)
+        public void add(string nameTown, int idTown, string nameDepartament, int idDept, int cantPeople, string covid, int cantConfirm)
         {
             Departament dept = null;
 
             for (int i = 0; i < size; i++)
             {
-                if (departaments.ElementAt(i).Equals(id))
+                if (departaments.ElementAt(i).id == idDept)
                 {
                     dept = departaments.ElementAt(i);
                     break;
@@ -32,12 +32,12 @@ namespace Gmaps_Management
             }
             if (dept == null)
             {
-                dept = new Departament( name,id);
+                dept = new Departament( name,idDept);
                 departaments.Add(dept);
                 size++;
             }
 
-            dept.add(nameTown, idTown, cantPeople, covid, cantConfirm, region);
+            dept.add(nameTown, idTown, cantPeople, covid, cantConfirm);
         }
     }
 }

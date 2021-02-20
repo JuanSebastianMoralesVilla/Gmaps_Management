@@ -26,7 +26,7 @@ namespace Gmaps_Management
 
         // ruta del archivo
         private string path;
-       // pais
+        // pais
 
         private Country colombia;
         // data mostrar municipios
@@ -44,20 +44,21 @@ namespace Gmaps_Management
 
         public Form1()
         {
+            Console.WriteLine("Entreee");
             InitializeComponent();
             colombia = new Country();
             data = new AllTowns();
             points = new List<PointLatLng>();
 
             //Ubicacion del archivo a cargar
-            path = @"C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\Data";
-         
-            
+            path = @"E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\Data";
+
+
         }
 
         OpenFileDialog file = new OpenFileDialog();
 
-      
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -78,8 +79,9 @@ namespace Gmaps_Management
 
         private void loadGrid()
         {
-            try {
-                Console.WriteLine("ENTREEE");
+            try
+            {
+                
                 var reader = new StreamReader(File.OpenRead(path));
                 string line = reader.ReadLine();
                 line = reader.ReadLine();
@@ -95,31 +97,32 @@ namespace Gmaps_Management
                     string covid = (array[5]);
                     int cantConfirm = Int32.Parse(array[6]);
                     string region = (array[7]);
-                    AllTowns all = new AllTowns(nameTown, idTown, nameDepartament,idDept, cantPeople, covid, cantConfirm, region);
-                  
-                    colombia.add(nameTown, idTown, nameDepartament,idDept, cantPeople, covid, cantConfirm, region);
+                    AllTowns all = new AllTowns(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
 
-                    Console.WriteLine(all.ToString());
+                    colombia.add(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
 
-
+                    //Console.WriteLine(all.ToString());
 
                     towns.Add(all);
                     line = reader.ReadLine();
                 }
                 dataGridView1.DataSource = towns;
             }
-            catch (Exception alm) {
+            catch (Exception alm)
+            {
                 Console.WriteLine(alm.ToString());
             }
-          
+
 
         }
 
 
 
-        private void Form1_Load(object sender, EventArgs e) {
+        private void Form1_Load(object sender, EventArgs e)
+        {
 
             loadGrid();
+            cb_initialization();
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -141,14 +144,16 @@ namespace Gmaps_Management
         private void button2_Click(object sender, EventArgs e)
         {
             List<String> lista = data.getListTowns();
-            foreach (string f in lista) {
-
+            foreach (string f in lista)
+            {
+                Console.WriteLine(f,"Casteo PRo");
                 GeoCoderStatusCode statusCode;
                 PointLatLng? point = OpenStreet4UMapProvider.Instance.GetPoint(f, out statusCode);
 
-                if (point != null) {
-                    GMapMarker marker00 = new GMarkerGoogle(new PointLatLng (point.Value.Lat, point.Value.Lng),GMarkerGoogleType.blue_dot);
-                        marker00.ToolTipText = f + "\n " + point.Value.Lat + "\n" + point.Value.Lng;
+                if (point != null)
+                {
+                    GMapMarker marker00 = new GMarkerGoogle(new PointLatLng(point.Value.Lat, point.Value.Lng), GMarkerGoogleType.blue_dot);
+                    marker00.ToolTipText = f + "\n " + point.Value.Lat + "\n" + point.Value.Lng;
                     markers.Markers.Add(marker00);
 
                 }
@@ -164,15 +169,49 @@ namespace Gmaps_Management
 
         private void cbFilter1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbFilter1.Visible = false;
+            switch (cbFilter1.SelectedIndex)
+            {
+                case 0:
+                    cbCategories.Visible = true;
+                    break;
+                case 1:
+                    cbCategories.Visible = false;
+                    break;
+                case 2:
+                    cbCategories.Visible = false;
+                    break;
+                default:
+                    cbCategories.Visible = false;
+                    break;
+            }
         }
 
         private void cb_initialization()
         {
-            for (int i =0; i < colombia; i++)
+            /*
+            List<Region> regions = colombia.regions;
+            for (int i = 0; i < colombia.size; i++)
             {
-                
+                cbCategories.Items.Add(regions.ElementAt(i).name);
             }
+            cbCategories.Visible = false;
+            */
         }
+
+        private void chartData1()
+        {
+
+            // string[] nameDept= colombia
+        }
+
+        private void cbCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+
+
     }
 }
