@@ -176,8 +176,8 @@ namespace Gmaps_Management
         // limpiar elementos de gmaps
         private void button2_Click_1(object sender, EventArgs e)
         {
-            markers.IsVisibile=false;
-            polygons.IsVisibile = false;
+            markers.Clear();
+            polygons.Clear();
             txtSaveCoordenates.Clear();
             
         }
@@ -470,10 +470,10 @@ namespace Gmaps_Management
         {
 
             // pido latitud y longitud
-            double latitud = double.Parse(txtLatitud.Text);
+            double latitud = Double.Parse(Regex.Replace(txtLatitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
            txtLatitud.Text = "";
-            double longitud = double.Parse(txtLongitud.Text);
-           txtLongitud.Text = "";
+            double longitud = Double.Parse(Regex.Replace(txtLongitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+            txtLongitud.Text = "";
 
             txtSaveCoordenates.Text = "Latitud: "+ latitud + "   Longitud:" + longitud;
             PointLatLng p = new PointLatLng(latitud, longitud);
