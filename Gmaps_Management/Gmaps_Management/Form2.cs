@@ -118,5 +118,10 @@ namespace Gmaps_Management
         {
 
         }
+
+        private void PieChart_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

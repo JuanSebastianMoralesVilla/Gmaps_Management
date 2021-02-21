@@ -127,8 +127,9 @@ namespace Gmaps_Management
                 dataGridView1.DataSource = towns;
                 drawOnMap(towns);
                 cbFilter1.Visible = true;
+                Console.WriteLine("ESTO ESTA RARO");
                 cb_initialization();
-                Console.WriteLine(colombia.Regions.Count);
+                
 
             }
             catch (Exception alm)
@@ -350,6 +351,9 @@ namespace Gmaps_Management
                 if(latitud ==0 && longitud == 0)
                 {
                     point =  OpenStreet4UMapProvider.Instance.GetPoint(f, out statusCode);
+                    //town.latitud = point.Value.Lat;
+                    //town.longitud = point.Value.Lng;
+                    
                 }
                 else
                 {
