@@ -53,6 +53,7 @@ namespace Gmaps_Management
             this.label2 = new System.Windows.Forms.Label();
             this.cbMap = new System.Windows.Forms.ComboBox();
             this.txtSaveCoordenates = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -303,11 +304,23 @@ namespace Gmaps_Management
             this.txtSaveCoordenates.Size = new System.Drawing.Size(196, 20);
             this.txtSaveCoordenates.TabIndex = 25;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(822, 136);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(375, 26);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Los marcadores se almacenaran siempre en el mapa, para visualizarlos debes \r\ndarl" +
+    "e clik  en mostrar marcadores";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1567, 709);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.txtSaveCoordenates);
             this.Controls.Add(this.cbMap);
             this.Controls.Add(this.label2);
@@ -367,6 +380,7 @@ namespace Gmaps_Management
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbMap;
         private System.Windows.Forms.TextBox txtSaveCoordenates;
+        private System.Windows.Forms.Label label3;
     }
 }
 

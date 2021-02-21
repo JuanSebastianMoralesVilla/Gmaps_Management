@@ -491,22 +491,34 @@ namespace Gmaps_Management
                // Console.WriteLine("entre");
                 points.Add(p);
                 addMarkers();
-
+            
                 gMap.Position = new PointLatLng(latitud, longitud);
 
+                if (!markers.IsVisibile)
+                {
+                    markers.IsVisibile = true;
+                }
 
             } else if (cbMap.SelectedIndex==1){
                 poligonos.Add(p);
                 addPolygons();
+                
                 gMap.Position = new PointLatLng(latitud, longitud);
             }
 
-                
+
+
+            
             
            
         }
 
         private void txBoxload2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
