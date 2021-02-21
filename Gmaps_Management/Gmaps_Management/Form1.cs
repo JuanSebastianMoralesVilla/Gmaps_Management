@@ -152,6 +152,7 @@ namespace Gmaps_Management
 
         }
 
+        // carga gMap
         private void gMapControl1_Load(object sender, EventArgs e)
         {
             gMap.MapProvider = GoogleMapProvider.Instance;
@@ -160,6 +161,7 @@ namespace Gmaps_Management
             gMap.Position = new PointLatLng(3.42158, -75.7643);
 
             gMap.Overlays.Add(markers);
+            gMap.Overlays.Add(polygons);
 
         }
 
@@ -174,6 +176,7 @@ namespace Gmaps_Management
         {
             markers.IsVisibile=false;
             polygons.IsVisibile = false;
+            txtSaveCoordenates.Clear();
             
         }
 
@@ -442,6 +445,7 @@ namespace Gmaps_Management
             foreach (PointLatLng p in points) {
                 GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.green_dot);
                 markers.Markers.Add(marker);
+               
             }
         }
 
@@ -474,11 +478,14 @@ namespace Gmaps_Management
 
 
 
-
             if (cbMap.SelectedIndex == 0) {
                // Console.WriteLine("entre");
                 points.Add(p);
                 addMarkers();
+
+                gMap.Position = new PointLatLng(latitud, longitud);
+
+
             } else if (cbMap.SelectedIndex==1){
                 poligonos.Add(p);
                 addPolygons();
