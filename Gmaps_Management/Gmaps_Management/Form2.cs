@@ -16,12 +16,13 @@ namespace Gmaps_Management
     {
 
         private Country Colombia;
+        private AllTowns data;
 
         public Form2(Country co)
         {
             InitializeComponent();
             Colombia = co;
-
+            data = new AllTowns();
         }
 
 
@@ -43,16 +44,74 @@ namespace Gmaps_Management
         public void loadBarChart()
         {
             List<Region> r = Colombia.Regions;
+            int count = 0;
+            int indexChart = 0;
+            foreach (Region currentR in r)
+            {
+                string region = currentR.name;
+                List<Departament> d = currentR.departaments;
+                foreach(Departament currentD in d)
+                {
+                    count+=currentD.towns.Count();
+                }
+                GraphicBar.Series["Series1"].Points.AddXY(region, count);
+                GraphicBar.Series["Series1"].Points[indexChart].LegendText = region;
+                GraphicBar.Series["Series1"].Points[indexChart].Label = "" + count;
+                count = 0;
+                indexChart++;
+            }
         }
 
         public void loadPointChart()
         {
-
+            List<Region> r = Colombia.Regions;
+            int confirmed = 0;
+            int indexChart = 0;
+            foreach (Region currentR in r)
+            {
+                List<Departament> d = currentR.departaments;
+                foreach (Departament currentD in d)
+                {
+                    string dName = currentD.name;
+                    List<Town> t = currentD.towns;
+                    foreach (Town currentT in t)
+                    {
+                        confirmed += currentT.cantConfirm;
+                    }
+                    pointChar3.Series["Series1"].Points.AddXY(dName, confirmed);
+                    pointChar3.Series["Series1"].Points[indexChart].LegendText = dName;
+                    pointChar3.Series["Series1"].Points[indexChart].Label = "" + confirmed;
+                    confirmed = 0;
+                    indexChart++;
+                }
+            }
         }
 
         public void loadPieChart()
         {
-
+            List<Region> r = Colombia.Regions;
+            int confirmed = 0;
+            int total = 0;
+            foreach (Region currentR in r)
+            {
+                string region = currentR.name;
+                List<Departament> d = currentR.departaments;
+                foreach (Departament currentD in d)
+                {
+                    List<Town> t = currentD.towns;
+                    foreach(Town currentT in t)
+                    {
+                        confirmed += currentT.cantConfirm;
+                        total += currentT.cantPeople;
+                    }
+                }
+            }
+            PieChart.Series["Series3"].Points.AddXY("Contagiados", confirmed);
+            PieChart.Series["Series3"].Points[0].LegendText = "Contagiados";
+            PieChart.Series["Series3"].Points[0].Label = "" + confirmed;
+            PieChart.Series["Series3"].Points.AddXY("Poblacion Total", total);
+            PieChart.Series["Series3"].Points[1].LegendText = "Poblacion Total";
+            PieChart.Series["Series3"].Points[1].Label = "" + total;
         }
 
         private void chart1_Click(object sender, EventArgs e)

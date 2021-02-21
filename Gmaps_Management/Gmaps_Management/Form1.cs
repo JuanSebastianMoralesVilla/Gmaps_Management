@@ -33,6 +33,7 @@ namespace Gmaps_Management
 
         private AllTowns data;
 
+        private Form2 chartWindow;
 
         // capas y listas (marcadores, puntos)
 
@@ -123,6 +124,7 @@ namespace Gmaps_Management
                 drawOnMap(towns);
                 cbFilter1.Visible = true;
                 cb_initialization();
+                Console.WriteLine(colombia.Regions.Count);
 
             }
             catch (Exception alm)
@@ -430,6 +432,15 @@ namespace Gmaps_Management
             {
                 Console.WriteLine(t.Message);
             }
+        }
+
+        private void chartButton_Click(object sender, EventArgs e)
+        {
+            chartWindow = new Form2(colombia);
+            chartWindow.loadBarChart();
+            chartWindow.loadPieChart();
+            chartWindow.loadPointChart();
+            chartWindow.ShowDialog();
         }
     }
 }

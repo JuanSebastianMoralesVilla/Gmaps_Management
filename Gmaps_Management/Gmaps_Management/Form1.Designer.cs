@@ -45,6 +45,7 @@ namespace Gmaps_Management
             this.menorLabel = new System.Windows.Forms.Label();
             this.mayorLabel = new System.Windows.Forms.Label();
             this.search_range = new System.Windows.Forms.Button();
+            this.chartButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -221,11 +222,22 @@ namespace Gmaps_Management
             this.search_range.Visible = false;
             this.search_range.Click += new System.EventHandler(this.search_range_Click);
             // 
+            // chartButton
+            // 
+            this.chartButton.Location = new System.Drawing.Point(937, 19);
+            this.chartButton.Name = "chartButton";
+            this.chartButton.Size = new System.Drawing.Size(75, 23);
+            this.chartButton.TabIndex = 17;
+            this.chartButton.Text = "Show Charts";
+            this.chartButton.UseVisualStyleBackColor = true;
+            this.chartButton.Click += new System.EventHandler(this.chartButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 654);
+            this.Controls.Add(this.chartButton);
             this.Controls.Add(this.search_range);
             this.Controls.Add(this.mayorLabel);
             this.Controls.Add(this.menorLabel);
@@ -268,6 +280,7 @@ namespace Gmaps_Management
         private System.Windows.Forms.Label menorLabel;
         private System.Windows.Forms.Label mayorLabel;
         private System.Windows.Forms.Button search_range;
+        private System.Windows.Forms.Button chartButton;
     }
 }
 

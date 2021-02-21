@@ -51,6 +51,7 @@ namespace Gmaps_Management
             // 
             chartArea1.Name = "ChartArea1";
             this.GraphicBar.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.GraphicBar.Legends.Add(legend1);
             this.GraphicBar.Location = new System.Drawing.Point(0, 175);
@@ -58,7 +59,6 @@ namespace Gmaps_Management
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             this.GraphicBar.Series.Add(series1);
             this.GraphicBar.Size = new System.Drawing.Size(300, 300);
             this.GraphicBar.TabIndex = 0;
@@ -69,14 +69,15 @@ namespace Gmaps_Management
             // 
             chartArea2.Name = "ChartArea1";
             this.pointChar3.ChartAreas.Add(chartArea2);
+            legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.pointChar3.Legends.Add(legend2);
             this.pointChar3.Location = new System.Drawing.Point(678, 175);
             this.pointChar3.Name = "pointChar3";
             series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             this.pointChar3.Series.Add(series2);
             this.pointChar3.Size = new System.Drawing.Size(300, 300);
             this.pointChar3.TabIndex = 1;
@@ -85,16 +86,16 @@ namespace Gmaps_Management
             // PieChart
             // 
             this.PieChart.CausesValidation = false;
-            chartArea3.Name = "ChartArea1";
+            chartArea3.Name = "ChartArea3";
             this.PieChart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
+            legend3.Name = "Legend3";
             this.PieChart.Legends.Add(legend3);
             this.PieChart.Location = new System.Drawing.Point(345, 175);
             this.PieChart.Name = "PieChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
+            series3.ChartArea = "ChartArea3";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Legend = "Legend3";
+            series3.Name = "Series3";
             this.PieChart.Series.Add(series3);
             this.PieChart.Size = new System.Drawing.Size(300, 300);
             this.PieChart.TabIndex = 2;
