@@ -34,10 +34,17 @@ namespace Gmaps_Management
             this.txBoxload2 = new System.Windows.Forms.TextBox();
             this.gMap = new GMap.NET.WindowsForms.GMapControl();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btMunicipios = new System.Windows.Forms.Button();
             this.btClear = new System.Windows.Forms.Button();
             this.cbFilter1 = new System.Windows.Forms.ComboBox();
             this.cbCategories = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.search = new System.Windows.Forms.Button();
+            this.btMunicipios = new System.Windows.Forms.Button();
+            this.tb_menor = new System.Windows.Forms.TextBox();
+            this.tb_mayor = new System.Windows.Forms.TextBox();
+            this.menorLabel = new System.Windows.Forms.Label();
+            this.mayorLabel = new System.Windows.Forms.Label();
+            this.search_range = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,19 +108,9 @@ namespace Gmaps_Management
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // btMunicipios
-            // 
-            this.btMunicipios.Location = new System.Drawing.Point(998, 165);
-            this.btMunicipios.Name = "btMunicipios";
-            this.btMunicipios.Size = new System.Drawing.Size(140, 23);
-            this.btMunicipios.TabIndex = 5;
-            this.btMunicipios.Text = "Mostrar Municipios";
-            this.btMunicipios.UseVisualStyleBackColor = true;
-            this.btMunicipios.Click += new System.EventHandler(this.button2_Click);
-            // 
             // btClear
             // 
-            this.btClear.Location = new System.Drawing.Point(797, 164);
+            this.btClear.Location = new System.Drawing.Point(645, 163);
             this.btClear.Name = "btClear";
             this.btClear.Size = new System.Drawing.Size(75, 23);
             this.btClear.TabIndex = 6;
@@ -143,11 +140,99 @@ namespace Gmaps_Management
             this.cbCategories.TabIndex = 8;
             this.cbCategories.SelectedIndexChanged += new System.EventHandler(this.cbCategories_SelectedIndexChanged);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(60, 166);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(186, 20);
+            this.textBox1.TabIndex = 9;
+            this.textBox1.Visible = false;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // search
+            // 
+            this.search.Location = new System.Drawing.Point(267, 166);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(75, 23);
+            this.search.TabIndex = 10;
+            this.search.Text = "search";
+            this.search.UseVisualStyleBackColor = true;
+            this.search.Visible = false;
+            this.search.Click += new System.EventHandler(this.button2_Click_2);
+            // 
+            // btMunicipios
+            // 
+            this.btMunicipios.Location = new System.Drawing.Point(848, 163);
+            this.btMunicipios.Name = "btMunicipios";
+            this.btMunicipios.Size = new System.Drawing.Size(140, 23);
+            this.btMunicipios.TabIndex = 5;
+            this.btMunicipios.Text = "Mostrar Municipios";
+            this.btMunicipios.UseVisualStyleBackColor = true;
+            this.btMunicipios.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tb_menor
+            // 
+            this.tb_menor.AccessibleDescription = "";
+            this.tb_menor.Location = new System.Drawing.Point(60, 167);
+            this.tb_menor.Name = "tb_menor";
+            this.tb_menor.Size = new System.Drawing.Size(70, 20);
+            this.tb_menor.TabIndex = 11;
+            this.tb_menor.Visible = false;
+            this.tb_menor.TextChanged += new System.EventHandler(this.menorValue_TextChanged);
+            // 
+            // tb_mayor
+            // 
+            this.tb_mayor.Location = new System.Drawing.Point(181, 167);
+            this.tb_mayor.Name = "tb_mayor";
+            this.tb_mayor.Size = new System.Drawing.Size(65, 20);
+            this.tb_mayor.TabIndex = 12;
+            this.tb_mayor.Visible = false;
+            // 
+            // menorLabel
+            // 
+            this.menorLabel.AutoSize = true;
+            this.menorLabel.Location = new System.Drawing.Point(19, 171);
+            this.menorLabel.Name = "menorLabel";
+            this.menorLabel.Size = new System.Drawing.Size(39, 13);
+            this.menorLabel.TabIndex = 14;
+            this.menorLabel.Text = "menor:";
+            this.menorLabel.Visible = false;
+            this.menorLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // mayorLabel
+            // 
+            this.mayorLabel.AutoSize = true;
+            this.mayorLabel.Location = new System.Drawing.Point(137, 170);
+            this.mayorLabel.Name = "mayorLabel";
+            this.mayorLabel.Size = new System.Drawing.Size(38, 13);
+            this.mayorLabel.TabIndex = 15;
+            this.mayorLabel.Text = "mayor:";
+            this.mayorLabel.Visible = false;
+            this.mayorLabel.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // search_range
+            // 
+            this.search_range.Location = new System.Drawing.Point(267, 165);
+            this.search_range.Name = "search_range";
+            this.search_range.Size = new System.Drawing.Size(75, 23);
+            this.search_range.TabIndex = 16;
+            this.search_range.Text = "search";
+            this.search_range.UseVisualStyleBackColor = true;
+            this.search_range.Visible = false;
+            this.search_range.Click += new System.EventHandler(this.search_range_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 654);
+            this.ClientSize = new System.Drawing.Size(1084, 654);
+            this.Controls.Add(this.search_range);
+            this.Controls.Add(this.mayorLabel);
+            this.Controls.Add(this.menorLabel);
+            this.Controls.Add(this.tb_mayor);
+            this.Controls.Add(this.tb_menor);
+            this.Controls.Add(this.search);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.cbCategories);
             this.Controls.Add(this.cbFilter1);
             this.Controls.Add(this.btClear);
@@ -172,10 +257,17 @@ namespace Gmaps_Management
         private System.Windows.Forms.TextBox txBoxload2;
         private GMap.NET.WindowsForms.GMapControl gMap;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btMunicipios;
         private System.Windows.Forms.Button btClear;
         private System.Windows.Forms.ComboBox cbFilter1;
         private System.Windows.Forms.ComboBox cbCategories;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button search;
+        private System.Windows.Forms.Button btMunicipios;
+        private System.Windows.Forms.TextBox tb_menor;
+        private System.Windows.Forms.TextBox tb_mayor;
+        private System.Windows.Forms.Label menorLabel;
+        private System.Windows.Forms.Label mayorLabel;
+        private System.Windows.Forms.Button search_range;
     }
 }
 

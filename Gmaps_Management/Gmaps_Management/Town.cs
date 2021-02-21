@@ -8,22 +8,22 @@ namespace Gmaps_Management.Class
 {
     public class Town
     {
-        private String nameTown { get; set; }
-        private  int id { get; set; }
-
+        public String nameTown { get; set; }
+        public int id { get; set; }
         public int cantPeople { get; set; }
-
         public string covid { get; set; }
-
         public int cantConfirm { get; set; }
-
-        public Town(string nameTown, int id, int cantPeople, string covid, int cantConfirm)
+        public double latitud { get; set; }
+        public double longitud { get; set; }
+        public Town(string nameTown, int id, int cantPeople, string covid, int cantConfirm, double latitud, double longitud)
         {
             this.nameTown = nameTown;
             this.id = id;
             this.cantPeople = cantPeople;
             this.covid = covid;
             this.cantConfirm = cantConfirm;
+            this.latitud = latitud;
+            this.longitud = longitud;
         }
     }
 }

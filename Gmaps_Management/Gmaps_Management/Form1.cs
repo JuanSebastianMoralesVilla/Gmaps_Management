@@ -52,7 +52,8 @@ namespace Gmaps_Management
 
             //Ubicacion del archivo a cargar
             path = @"..\..\Data";
-
+            cbFilter1.Visible = false;
+            cbCategories.Visible = false;
 
         }
 
@@ -99,10 +100,12 @@ namespace Gmaps_Management
                         string covid = (array[5]);
                         int cantConfirm = Int32.Parse(array[6]);
                         string region = (array[7]);
+                        Console.WriteLine(array[8]);
+                        double latitud = array[8].ElementAt(0).Equals('#') ? 0 : Convert.ToDouble(array[8]);
+                        double longitud = array[9].ElementAt(0).Equals('#') ? 0 : Convert.ToDouble(array[9]);
+                        AllTowns all = new AllTowns(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region,latitud,longitud);
 
-                        AllTowns all = new AllTowns(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
-
-                        colombia.add(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region);
+                        colombia.add(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region,latitud,longitud);
 
                         //Console.WriteLine(all.ToString());
 
@@ -111,13 +114,15 @@ namespace Gmaps_Management
                     }
                     catch(FormatException e)
                     {
-                        Console.WriteLine("Line is empty");
+                        Console.WriteLine(e.Message,"Line is empty");
                     }
                     line = reader.ReadLine();
 
                 }
                 dataGridView1.DataSource = towns;
-                
+                drawOnMap(towns);
+                cbFilter1.Visible = true;
+                cb_initialization();
 
             }
             catch (Exception alm)
@@ -133,9 +138,8 @@ namespace Gmaps_Management
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             loadGrid();
-            cb_initialization();
+            
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -156,12 +160,195 @@ namespace Gmaps_Management
         // boton para que aparezcan los municipios
         private void button2_Click(object sender, EventArgs e)
         {
-            List<String> lista = data.getListTowns();
-            foreach (string f in lista)
+            markers.IsVisibile = true;
+        }
+
+        // limpiar elementos de gmaps
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            markers.IsVisibile=false;
+        }
+
+        private void cbFilter1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            search.Visible = false;
+            textBox1.Visible = false;
+            tb_menor.Visible = false;
+            tb_mayor.Visible = false;
+            cbCategories.Visible = false;
+            mayorLabel.Visible = false;
+            menorLabel.Visible = false;
+            search_range.Visible = false;
+            switch (cbFilter1.SelectedIndex)
             {
-                Console.WriteLine(f,"Casteo PRo");
+                case 0:
+                    cbCategories.Visible = true;
+                    break;
+                case 1:
+                    search.Visible = true;
+                    textBox1.Visible = true;
+                    break;
+                case 2:
+                    mayorLabel.Visible = true;
+                    menorLabel.Visible = true;
+                    tb_menor.Visible = true;
+                    tb_mayor.Visible = true;
+                    search_range.Visible = true;
+                    break;
+            }
+        }
+
+        private void cb_initialization()
+        {
+            
+            List<Region> regions = colombia.Regions;
+            Console.WriteLine("Eoooo");
+            for (int i = 0; i < colombia.size; i++)
+            {
+                
+                cbCategories.Items.Add(regions.ElementAt(i).name);
+            }
+            cbCategories.Items.Add("all");
+            cbCategories.Visible = false;
+            
+        }
+
+        private void chartData1()
+        {
+
+            // string[] nameDept= colombia
+        }
+
+        private void cbCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cbCategories.SelectedIndex;
+            if (index == 6)
+            {
+                loadGrid_Categoric();
+            }
+            else
+            {
+                List<AllTowns> listTowns = new List<AllTowns>();
+                string region = colombia.Regions.ElementAt(index).name;
+                List<Departament> departments = colombia.Regions.ElementAt(index).departaments;
+                foreach (Departament department in departments)
+                {
+                    string nameDepartment = department.name;
+                    int idDept = department.id;
+                    List<Town> towns = department.towns;
+                    foreach (Town town in towns)
+                    {
+                        int idTown = town.id;
+                        string nameTown = town.nameTown;
+                        int cantPeople = town.cantPeople;
+                        int cantConfirm = town.cantConfirm;
+                        string covid = town.covid;
+                        double latitud = town.latitud;
+                        double longitud = town.longitud;
+                        AllTowns all = new AllTowns(nameTown, idTown, nameDepartment, idDept, cantPeople, covid, cantConfirm, region, latitud, longitud);
+                        listTowns.Add(all);
+                    }
+                }
+                dataGridView1.DataSource = listTowns;
+                drawOnMap(listTowns);
+            }
+            
+        }
+
+        public void loadGrid_Categoric()
+        {
+            List<AllTowns> listTowns = new List<AllTowns>();
+            List<Region> regions = colombia.Regions;
+            foreach(Region currentRegion in regions)
+            {
+                
+                string region = currentRegion.name;
+                List<Departament> departments = currentRegion.departaments;
+                foreach (Departament department in departments)
+                {
+                    string nameDepartment = department.name;
+                    int idDept = department.id;
+                    List<Town> towns = department.towns;
+                    foreach (Town town in towns)
+                    {
+                        int idTown = town.id;
+                        string nameTown = town.nameTown;
+                        int cantPeople = town.cantPeople;
+                        int cantConfirm = town.cantConfirm;
+                        string covid = town.covid;
+                        double latitud = town.latitud;
+                        double longitud = town.longitud;
+                        AllTowns all = new AllTowns(nameTown, idTown, nameDepartment, idDept, cantPeople, covid, cantConfirm, region, latitud, longitud);
+                        listTowns.Add(all);
+                    }
+                }
+            }
+            
+            dataGridView1.DataSource = listTowns;
+            drawOnMap(listTowns);
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            string text = textBox1.Text.ToUpper();
+
+            List<AllTowns> listTowns = new List<AllTowns>();
+            List<Region> regions = colombia.Regions;
+            foreach (Region currentRegion in regions)
+            {
+
+                string region = currentRegion.name;
+                List<Departament> departments = currentRegion.departaments;
+                foreach (Departament department in departments)
+                {
+                    int idDept = department.id;
+                    string nameDepartment = department.name;
+                    List<Town> towns = department.towns;
+                    foreach (Town town in towns)
+                    {
+                        if (town.nameTown.Contains(text))
+                        {
+                            int idTown = town.id;
+                            string nameTown = town.nameTown;
+                            int cantPeople = town.cantPeople;
+                            int cantConfirm = town.cantConfirm;
+                            string covid = town.covid;
+                            double latitud = town.latitud;
+                            double longitud = town.longitud;
+                            AllTowns all = new AllTowns(nameTown, idTown, nameDepartment, idDept, cantPeople, covid, cantConfirm, region, latitud, longitud);
+                            listTowns.Add(all);
+                        }
+                    }
+                }
+            }
+            dataGridView1.DataSource = listTowns;
+            drawOnMap(listTowns);
+        }
+
+        public void drawOnMap(List<AllTowns> towns)
+        {
+            markers.Clear();
+            foreach (AllTowns town in towns)
+            {
+                string f = town.nameTown + ", " + town.nameDepartament + ", COLOMBIA";
+                double latitud = town.latitud;
+                double longitud = town.longitud;
                 GeoCoderStatusCode statusCode;
-                PointLatLng? point = OpenStreet4UMapProvider.Instance.GetPoint(f, out statusCode);
+                PointLatLng? point;
+                if(latitud ==0 && longitud == 0)
+                {
+                    point =  OpenStreet4UMapProvider.Instance.GetPoint(f, out statusCode);
+                }
+                else
+                {
+                    point = new PointLatLng(latitud, longitud);
+                }
+                 
 
                 if (point != null)
                 {
@@ -174,57 +361,75 @@ namespace Gmaps_Management
             }
         }
 
-        // limpiar elementos de gmaps
-        private void button2_Click_1(object sender, EventArgs e)
+        private void menorValue_TextChanged(object sender, EventArgs e)
         {
-            markers.Clear();
+
         }
 
-        private void cbFilter1_SelectedIndexChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
-            switch (cbFilter1.SelectedIndex)
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void search_range_Click(object sender, EventArgs e)
+        {
+            try
             {
-                case 0:
-                    cbCategories.Visible = true;
-                    break;
-                case 1:
-                    cbCategories.Visible = false;
-                    break;
-                case 2:
-                    cbCategories.Visible = false;
-                    break;
-                default:
-                    cbCategories.Visible = false;
-                    break;
+                int menor = Int32.Parse(tb_menor.Text);
+                int mayor = Int32.Parse(tb_mayor.Text);
+                if (menor > mayor)
+                {
+                    int aux = menor;
+                    menor = mayor;
+                    mayor = aux;
+                    menor = menor < 0 ? 0 : menor;
+                    mayor = mayor < 0 ? 0 : mayor;
+                    tb_menor.Text = menor + "";
+                    tb_mayor.Text = mayor + "";
+                }
+
+                List<AllTowns> listTowns = new List<AllTowns>();
+                List<Region> regions = colombia.Regions;
+                foreach (Region currentRegion in regions)
+                {
+
+                    string region = currentRegion.name;
+                    List<Departament> departments = currentRegion.departaments;
+                    foreach (Departament department in departments)
+                    {
+                        int idDept = department.id;
+                        string nameDepartment = department.name;
+                        List<Town> towns = department.towns;
+                        foreach (Town town in towns)
+                        {
+                            if (town.cantConfirm>=menor && town.cantConfirm<=mayor)
+                            {
+                                int idTown = town.id;
+                                string nameTown = town.nameTown;
+                                int cantPeople = town.cantPeople;
+                                int cantConfirm = town.cantConfirm;
+                                string covid = town.covid;
+                                double latitud = town.latitud;
+                                double longitud = town.longitud;
+                                AllTowns all = new AllTowns(nameTown, idTown, nameDepartment, idDept, cantPeople, covid, cantConfirm, region, latitud, longitud);
+                                listTowns.Add(all);
+                            }
+                        }
+                    }
+                }
+                dataGridView1.DataSource = listTowns;
+                drawOnMap(listTowns);
+
+            }
+            catch(FormatException t)
+            {
+                Console.WriteLine(t.Message);
             }
         }
-
-        private void cb_initialization()
-        {
-            /*
-            List<Region> regions = colombia.regions;
-            for (int i = 0; i < colombia.size; i++)
-            {
-                cbCategories.Items.Add(regions.ElementAt(i).name);
-            }
-            cbCategories.Visible = false;
-            */
-        }
-
-        private void chartData1()
-        {
-
-            // string[] nameDept= colombia
-        }
-
-        private void cbCategories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-
-
     }
 }

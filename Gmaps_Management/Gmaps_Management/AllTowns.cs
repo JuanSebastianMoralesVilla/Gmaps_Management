@@ -12,23 +12,19 @@ namespace Gmaps_Management.Class
        // nombre municipio
         public string nameTown { get; set; }
         public int idTown { get; set; }
-
         public string nameDepartament { get; set; }
         public int idDept { get; set; }
-
-
         public int cantPeople { get; set; }
-
         public string covid { get; set; }
-
         public int cantConfirm { get; set; }
-
         public string region { get; set; }
+        public double latitud { get; set; }
+        public double longitud { get; set; }
 
         private const String path = @"..\..\Data\Colombia_COVID19_Coronavirus_Municipio.csv";
          List<String> listTowns;
        
-        public AllTowns(string nameTown, int idTown, string nameDepartament,int idDept, int cantPeople, string covid, int cantConfirm, string region)
+        public AllTowns(string nameTown, int idTown, string nameDepartament,int idDept, int cantPeople, string covid, int cantConfirm, string region, double latitud, double longitud)
         {
             this.nameTown = nameTown;
             this.idTown = idTown;
@@ -38,7 +34,8 @@ namespace Gmaps_Management.Class
             this.covid = covid;
             this.cantConfirm = cantConfirm;
             this.region = region;
-            
+            this.latitud = latitud;
+            this.longitud = longitud;
         }
 
         public AllTowns()

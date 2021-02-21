@@ -18,7 +18,7 @@ namespace Gmaps_Management
             name = region;
             departaments = new List<Departament>();
         }
-        public void add(string nameTown, int idTown, string nameDepartament, int idDept, int cantPeople, string covid, int cantConfirm)
+        public void add(string nameTown, int idTown, string nameDepartament, int idDept, int cantPeople, string covid, int cantConfirm,double latitud, double longitud)
         {
             Departament dept = null;
 
@@ -32,12 +32,12 @@ namespace Gmaps_Management
             }
             if (dept == null)
             {
-                dept = new Departament( name,idDept);
+                dept = new Departament(nameDepartament, idDept);
                 departaments.Add(dept);
                 size++;
             }
 
-            dept.add(nameTown, idTown, cantPeople, covid, cantConfirm);
+            dept.add(nameTown, idTown, cantPeople, covid, cantConfirm,latitud,longitud);
         }
     }
 }

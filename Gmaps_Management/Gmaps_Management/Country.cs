@@ -18,7 +18,7 @@ namespace Gmaps_Management.Class
             size = 0;
         }
 
-        public void add(string nameTown, int idTown, string nameDepartament, int idDept, int cantPeople, string covid, int cantConfirm, string region)
+        public void add(string nameTown, int idTown, string nameDepartament, int idDept, int cantPeople, string covid, int cantConfirm, string region, double latitud, double longitud)
         {
             Region region1 = null;
 
@@ -37,7 +37,12 @@ namespace Gmaps_Management.Class
                 size++;
             }
 
-            region1.add(nameTown, idTown, nameDepartament, idDept, cantPeople,covid,cantConfirm);
+            region1.add(nameTown, idTown, nameDepartament, idDept, cantPeople,covid,cantConfirm,latitud,longitud);
+        }
+
+        public List<Region> GetRegions()
+        {
+            return Regions;
         }
 
     }
