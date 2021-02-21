@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Gmaps_Management
 {
-    class Region
+    public class Region
     {
         public List<Departament> departaments { get; set; }
         public string name { get; set; }

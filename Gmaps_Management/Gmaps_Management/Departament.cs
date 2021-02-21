@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gmaps_Management.Class
 {
-    class Departament
+    public class Departament
 
     {
 

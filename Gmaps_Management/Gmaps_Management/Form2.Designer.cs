@@ -58,6 +58,7 @@ namespace Gmaps_Management
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Column;
             this.GraphicBar.Series.Add(series1);
             this.GraphicBar.Size = new System.Drawing.Size(300, 300);
             this.GraphicBar.TabIndex = 0;
@@ -75,6 +76,7 @@ namespace Gmaps_Management
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             this.pointChar3.Series.Add(series2);
             this.pointChar3.Size = new System.Drawing.Size(300, 300);
             this.pointChar3.TabIndex = 1;
@@ -92,6 +94,7 @@ namespace Gmaps_Management
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Series1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             this.PieChart.Series.Add(series3);
             this.PieChart.Size = new System.Drawing.Size(300, 300);
             this.PieChart.TabIndex = 2;

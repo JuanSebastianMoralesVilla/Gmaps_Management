@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Gmaps_Management.Class
 {
-    class Town
+    public class Town
     {
         private String nameTown { get; set; }
         private  int id { get; set; }
