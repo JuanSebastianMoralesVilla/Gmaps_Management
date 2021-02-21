@@ -106,5 +106,17 @@ namespace Gmaps_Management
             PieChart.Series["Series3"].Points[1].Label = "" + total;
         }
 
+<<<<<<< HEAD
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PieChart_Click(object sender, EventArgs e)
+        {
+
+        }
+=======
+>>>>>>> 88589f908eb2af28f4d28cd1a9396f31cb302144
     }
 }
