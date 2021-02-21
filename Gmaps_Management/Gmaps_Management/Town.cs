@@ -8,7 +8,7 @@ namespace Gmaps_Management.Class
 {
     public class Town
     {
-        public string nameTown { get; set; }
+        public String nameTown { get; set; }
         public int id { get; set; }
         public int cantPeople { get; set; }
         public string covid { get; set; }

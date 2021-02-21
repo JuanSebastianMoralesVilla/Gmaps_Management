@@ -130,13 +130,8 @@ namespace Gmaps_Management
                 dataGridView1.DataSource = towns;
                 drawOnMap(towns);
                 cbFilter1.Visible = true;
-                Console.WriteLine("ESTO ESTA RARO");
                 cb_initialization();
                 
-<<<<<<< HEAD
-
-=======
->>>>>>> 88589f908eb2af28f4d28cd1a9396f31cb302144
             }
             catch (Exception alm)
             {
@@ -357,9 +352,6 @@ namespace Gmaps_Management
                 if(latitud ==0 && longitud == 0)
                 {
                     point =  OpenStreet4UMapProvider.Instance.GetPoint(f, out statusCode);
-                    //town.latitud = point.Value.Lat;
-                    //town.longitud = point.Value.Lng;
-                    
                 }
                 else
                 {
