@@ -8,9 +8,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -105,9 +107,10 @@ namespace Gmaps_Management
                         string covid = (array[5]);
                         int cantConfirm = Int32.Parse(array[6]);
                         string region = (array[7]);
-                        Console.WriteLine(array[8]);
-                        double latitud = array[8].ElementAt(0).Equals('#') ? 0 : Convert.ToDouble(array[8]);
-                        double longitud = array[9].ElementAt(0).Equals('#') ? 0 : Convert.ToDouble(array[9]);
+                        //Console.WriteLine(array[8]);
+                        double latitud = array[8].ElementAt(0).Equals('#') ? 0 : Double.Parse(Regex.Replace(array[8], "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+                        //Console.WriteLine(array[8] + " " + latitud);
+                        double longitud = array[9].ElementAt(0).Equals('#') ? 0 : Double.Parse(Regex.Replace(array[9], "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
                         AllTowns all = new AllTowns(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region,latitud,longitud);
 
                         colombia.add(nameTown, idTown, nameDepartament, idDept, cantPeople, covid, cantConfirm, region,latitud,longitud);
@@ -128,8 +131,7 @@ namespace Gmaps_Management
                 drawOnMap(towns);
                 cbFilter1.Visible = true;
                 cb_initialization();
-                Console.WriteLine(colombia.Regions.Count);
-
+                
             }
             catch (Exception alm)
             {

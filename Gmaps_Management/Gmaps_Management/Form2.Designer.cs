@@ -54,32 +54,32 @@ namespace Gmaps_Management
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.GraphicBar.Legends.Add(legend1);
-            this.GraphicBar.Location = new System.Drawing.Point(0, 175);
+            this.GraphicBar.Location = new System.Drawing.Point(29, 128);
             this.GraphicBar.Name = "GraphicBar";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.GraphicBar.Series.Add(series1);
-            this.GraphicBar.Size = new System.Drawing.Size(300, 300);
+            this.GraphicBar.Size = new System.Drawing.Size(483, 569);
             this.GraphicBar.TabIndex = 0;
             this.GraphicBar.Text = "chart1";
-            this.GraphicBar.Click += new System.EventHandler(this.chart1_Click);
             // 
             // pointChar3
             // 
             chartArea2.Name = "ChartArea1";
             this.pointChar3.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
             legend2.Name = "Legend1";
             this.pointChar3.Legends.Add(legend2);
-            this.pointChar3.Location = new System.Drawing.Point(678, 175);
+            this.pointChar3.Location = new System.Drawing.Point(1047, 128);
             this.pointChar3.Name = "pointChar3";
+            this.pointChar3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
             series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
             series2.Legend = "Legend1";
             series2.Name = "Series1";
+            series2.YValuesPerPoint = 2;
             this.pointChar3.Series.Add(series2);
-            this.pointChar3.Size = new System.Drawing.Size(300, 300);
+            this.pointChar3.Size = new System.Drawing.Size(523, 629);
             this.pointChar3.TabIndex = 1;
             this.pointChar3.Text = "chart2";
             // 
@@ -90,14 +90,14 @@ namespace Gmaps_Management
             this.PieChart.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend3";
             this.PieChart.Legends.Add(legend3);
-            this.PieChart.Location = new System.Drawing.Point(345, 175);
+            this.PieChart.Location = new System.Drawing.Point(563, 128);
             this.PieChart.Name = "PieChart";
             series3.ChartArea = "ChartArea3";
             series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
             series3.Legend = "Legend3";
             series3.Name = "Series3";
             this.PieChart.Series.Add(series3);
-            this.PieChart.Size = new System.Drawing.Size(300, 300);
+            this.PieChart.Size = new System.Drawing.Size(440, 569);
             this.PieChart.TabIndex = 2;
             this.PieChart.Text = "chart3";
             // 
@@ -109,19 +109,20 @@ namespace Gmaps_Management
             this.Graficas.Name = "Graficas";
             this.Graficas.Size = new System.Drawing.Size(300, 68);
             this.Graficas.TabIndex = 3;
-            this.Graficas.Text = "Graficas equipo covip";
+            this.Graficas.Text = "Graficas equipo COVIP";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 610);
+            this.ClientSize = new System.Drawing.Size(1567, 709);
             this.Controls.Add(this.Graficas);
             this.Controls.Add(this.PieChart);
             this.Controls.Add(this.pointChar3);
             this.Controls.Add(this.GraphicBar);
             this.Name = "Form2";
             this.Text = "Form2";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.GraphicBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pointChar3)).EndInit();

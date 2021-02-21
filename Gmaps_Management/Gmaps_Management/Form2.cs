@@ -24,18 +24,10 @@ namespace Gmaps_Management
             Colombia = co;
             data = new AllTowns();
         }
-
-
-        private void charData1() {
-          
-            
-        
-        }
-
         private void Form2_Load(object sender, EventArgs e)
         {
             GraphicBar.Titles.Add("Gráfico de barras de cantidad de municipios por región");
-            pointChar3.Titles.Add("Gráfico de puntos de cantidad de casos por departamentos");
+            pointChar3.Titles.Add("Gráfico de dona de cantidad de casos por departamentos");
             PieChart.Titles.Add("Gráfico de pastel de cantidad de casos confirmados respecto a la población");
             PieChart.Palette = ChartColorPalette.EarthTones;
             
@@ -79,8 +71,8 @@ namespace Gmaps_Management
                         confirmed += currentT.cantConfirm;
                     }
                     pointChar3.Series["Series1"].Points.AddXY(dName, confirmed);
-                    pointChar3.Series["Series1"].Points[indexChart].LegendText = dName;
-                    pointChar3.Series["Series1"].Points[indexChart].Label = "" + confirmed;
+                    pointChar3.Series["Series1"].Points[indexChart].LegendText = dName+" - "+confirmed;
+                    pointChar3.Series["Series1"].Points[indexChart].Label = " ";
                     confirmed = 0;
                     indexChart++;
                 }
@@ -114,9 +106,5 @@ namespace Gmaps_Management
             PieChart.Series["Series3"].Points[1].Label = "" + total;
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
