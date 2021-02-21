@@ -40,6 +40,9 @@ namespace Gmaps_Management
         private List<PointLatLng> points;      //marcadores
         GMapOverlay markers = new GMapOverlay("markers");   //capa de marcadores
 
+        private List<PointLatLng> poligonos; // poligonos
+        GMapOverlay polygons = new GMapOverlay("polygons");
+
 
 
 
@@ -50,6 +53,7 @@ namespace Gmaps_Management
             colombia = new Country();
             data = new AllTowns();
             points = new List<PointLatLng>();
+            poligonos = new List<PointLatLng>();
 
             //Ubicacion del archivo a cargar
             path = @"..\..\Data";
@@ -169,6 +173,8 @@ namespace Gmaps_Management
         private void button2_Click_1(object sender, EventArgs e)
         {
             markers.IsVisibile=false;
+            polygons.IsVisibile = false;
+            
         }
 
         private void cbFilter1_SelectedIndexChanged(object sender, EventArgs e)
@@ -215,11 +221,7 @@ namespace Gmaps_Management
             
         }
 
-        private void chartData1()
-        {
-
-            // string[] nameDept= colombia
-        }
+     
 
         private void cbCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -434,6 +436,21 @@ namespace Gmaps_Management
             }
         }
 
+
+
+        public void addMarkers() {
+            foreach (PointLatLng p in points) {
+                GMapMarker marker = new GMarkerGoogle(p, GMarkerGoogleType.green_dot);
+                markers.Markers.Add(marker);
+            }
+        }
+
+        public void addPolygons() {
+
+            GMapPolygon polygon = new GMapPolygon(poligonos, "Poligono");
+            polygons.Polygons.Add(polygon);
+        }
+
         private void chartButton_Click(object sender, EventArgs e)
         {
             chartWindow = new Form2(colombia);
@@ -441,6 +458,41 @@ namespace Gmaps_Management
             chartWindow.loadPieChart();
             chartWindow.loadPointChart();
             chartWindow.ShowDialog();
+        }
+
+        private void AddForm_Click(object sender, EventArgs e)
+        {
+
+            // pido latitud y longitud
+            double latitud = double.Parse(txtLatitud.Text);
+           txtLatitud.Text = "";
+            double longitud = double.Parse(txtLongitud.Text);
+           txtLongitud.Text = "";
+
+            txtSaveCoordenates.Text = "Latitud: "+ latitud + "   Longitud:" + longitud;
+            PointLatLng p = new PointLatLng(latitud, longitud);
+
+
+
+
+            if (cbMap.SelectedIndex == 0) {
+               // Console.WriteLine("entre");
+                points.Add(p);
+                addMarkers();
+            } else if (cbMap.SelectedIndex==1){
+                poligonos.Add(p);
+                addPolygons();
+
+            }
+
+                
+            
+           
+        }
+
+        private void txBoxload2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

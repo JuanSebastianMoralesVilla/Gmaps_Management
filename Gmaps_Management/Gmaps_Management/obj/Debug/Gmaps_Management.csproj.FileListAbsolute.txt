@@ -39,3 +39,4 @@ C:\Users\Miguel Sarasti\git\Gmaps_Management\Gmaps_Management\Gmaps_Management\o
 C:\Users\Miguel Sarasti\git\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.exe
 C:\Users\Miguel Sarasti\git\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.pdb
 E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csprojAssemblyReference.cache
+C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Form2.resources
