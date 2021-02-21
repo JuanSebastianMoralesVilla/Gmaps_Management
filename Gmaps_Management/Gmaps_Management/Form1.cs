@@ -167,19 +167,26 @@ namespace Gmaps_Management
 
         }
 
-        // boton para que aparezcan los municipios
+
+        
+
+
+                       // boton para que aparezcan los municipios
         private void button2_Click(object sender, EventArgs e)
         {
+            
             markers.IsVisibile = true;
+           // polygons.IsVisibile = true;
         }
 
         // limpiar elementos de gmaps
         private void button2_Click_1(object sender, EventArgs e)
         {
-            markers.Clear();
+            markers.IsVisibile = false;
             polygons.Clear();
+            //polygons.IsVisibile = false;
             txtSaveCoordenates.Clear();
-            
+
         }
 
         private void cbFilter1_SelectedIndexChanged(object sender, EventArgs e)
@@ -491,7 +498,7 @@ namespace Gmaps_Management
             } else if (cbMap.SelectedIndex==1){
                 poligonos.Add(p);
                 addPolygons();
-
+                gMap.Position = new PointLatLng(latitud, longitud);
             }
 
                 

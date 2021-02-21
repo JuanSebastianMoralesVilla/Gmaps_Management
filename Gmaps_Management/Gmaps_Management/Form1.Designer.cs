@@ -172,11 +172,11 @@ namespace Gmaps_Management
             // 
             // btMunicipios
             // 
-            this.btMunicipios.Location = new System.Drawing.Point(361, 166);
+            this.btMunicipios.Location = new System.Drawing.Point(348, 146);
             this.btMunicipios.Name = "btMunicipios";
-            this.btMunicipios.Size = new System.Drawing.Size(140, 23);
+            this.btMunicipios.Size = new System.Drawing.Size(201, 42);
             this.btMunicipios.TabIndex = 5;
-            this.btMunicipios.Text = "Mostrar Municipios";
+            this.btMunicipios.Text = "Mostrar marcadores en el mapa";
             this.btMunicipios.UseVisualStyleBackColor = true;
             this.btMunicipios.Click += new System.EventHandler(this.button2_Click);
             // 
