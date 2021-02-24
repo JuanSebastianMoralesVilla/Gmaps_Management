@@ -1,4 +1,4 @@
-﻿using Gmaps_Management.Class;
+﻿using Gmaps_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace Gmaps_Management
+namespace Gmaps_Management.Gui
 {
     public partial class Form2 : Form
     {
@@ -35,10 +35,10 @@ namespace Gmaps_Management
 
         public void loadBarChart()
         {
-            List<Region> r = Colombia.Regions;
+            List<Gmaps_Management.Model.Region> r = Colombia.Regions;
             int count = 0;
             int indexChart = 0;
-            foreach (Region currentR in r)
+            foreach (Gmaps_Management.Model.Region currentR in r)
             {
                 string region = currentR.name;
                 List<Departament> d = currentR.departaments;
@@ -56,10 +56,10 @@ namespace Gmaps_Management
 
         public void loadPointChart()
         {
-            List<Region> r = Colombia.Regions;
+            List<Gmaps_Management.Model.Region> r = Colombia.Regions;
             int confirmed = 0;
             int indexChart = 0;
-            foreach (Region currentR in r)
+            foreach (Gmaps_Management.Model.Region currentR in r)
             {
                 List<Departament> d = currentR.departaments;
                 foreach (Departament currentD in d)
@@ -81,10 +81,10 @@ namespace Gmaps_Management
 
         public void loadPieChart()
         {
-            List<Region> r = Colombia.Regions;
+            List<Gmaps_Management.Model.Region> r = Colombia.Regions;
             int confirmed = 0;
             int total = 0;
-            foreach (Region currentR in r)
+            foreach (Gmaps_Management.Model.Region currentR in r)
             {
                 string region = currentR.name;
                 List<Departament> d = currentR.departaments;
@@ -105,8 +105,6 @@ namespace Gmaps_Management
             PieChart.Series["Series3"].Points[1].LegendText = "Poblacion Total";
             PieChart.Series["Series3"].Points[1].Label = "" + total;
         }
-
-<<<<<<< HEAD
         private void chart1_Click(object sender, EventArgs e)
         {
 
@@ -116,7 +114,10 @@ namespace Gmaps_Management
         {
 
         }
-=======
->>>>>>> 88589f908eb2af28f4d28cd1a9396f31cb302144
+
+        private void GraphicBar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

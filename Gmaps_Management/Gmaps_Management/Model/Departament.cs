@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gmaps_Management.Class
+namespace Gmaps_Management.Model
 {
     public class Departament
 
     {
 
-        public List<Town> towns{get; set;}
-        public string name { get; set; }
+        public List<Town> towns{get; }
+        public string name { get;}
 
-        public int id { get; set; }
+        public int id { get;  }
 
 
-        private int size { get;set; }
+        private int size { get; set; }
 
         public Departament( string name, int id)
         {

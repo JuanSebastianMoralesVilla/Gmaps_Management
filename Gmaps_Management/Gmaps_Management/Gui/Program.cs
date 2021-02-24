@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Gmaps_Management
+namespace Gmaps_Management.Gui
 {
     static class Program
     {

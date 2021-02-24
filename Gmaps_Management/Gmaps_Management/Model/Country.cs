@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gmaps_Management.Class
+namespace Gmaps_Management.Model
 {
     public class Country
     {
 
-        public List<Region> Regions { get; set; }
-        public int size { get; set; }
+        public List<Region> Regions { get;  }
+        public int size { get; private set; }
 
         public Country()
         {

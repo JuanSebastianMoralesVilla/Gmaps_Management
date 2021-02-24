@@ -1,17 +1,17 @@
-﻿using Gmaps_Management.Class;
+﻿using Gmaps_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Gmaps_Management
+namespace Gmaps_Management.Model
 {
     public class Region
     {
-        public List<Departament> departaments { get; set; }
-        public string name { get; set; }
-        public int size { get; set; }
+        public List<Departament> departaments { get;}
+        public string name { get;}
+        public int size { get; private set; }
 
         public Region(string region)
         {

@@ -1,5 +1,5 @@
 ﻿
-namespace Gmaps_Management
+namespace Gmaps_Management.Gui
 {
     partial class Form1
     {

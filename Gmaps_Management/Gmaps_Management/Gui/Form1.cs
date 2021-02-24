@@ -2,7 +2,7 @@
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsForms;
 using GMap.NET.WindowsForms.Markers;
-using Gmaps_Management.Class;
+using Gmaps_Management.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ using System.Windows.Forms;
 
 
 
-namespace Gmaps_Management
+namespace Gmaps_Management.Gui
 {
     public partial class Form1 : Form
     {
@@ -132,11 +132,7 @@ namespace Gmaps_Management
                 cbFilter1.Visible = true;
                 Console.WriteLine("ESTO ESTA RARO");
                 cb_initialization();
-                
-<<<<<<< HEAD
 
-=======
->>>>>>> 88589f908eb2af28f4d28cd1a9396f31cb302144
             }
             catch (Exception alm)
             {
@@ -219,7 +215,7 @@ namespace Gmaps_Management
         private void cb_initialization()
         {
             
-            List<Region> regions = colombia.Regions;
+            List<Gmaps_Management.Model.Region> regions = colombia.Regions;
             Console.WriteLine("Eoooo");
             for (int i = 0; i < colombia.size; i++)
             {
@@ -272,8 +268,8 @@ namespace Gmaps_Management
         public void loadGrid_Categoric()
         {
             List<AllTowns> listTowns = new List<AllTowns>();
-            List<Region> regions = colombia.Regions;
-            foreach(Region currentRegion in regions)
+            List<Gmaps_Management.Model.Region> regions = colombia.Regions;
+            foreach(Gmaps_Management.Model.Region currentRegion in regions)
             {
                 
                 string region = currentRegion.name;
@@ -312,8 +308,8 @@ namespace Gmaps_Management
             string text = textBox1.Text.ToUpper();
 
             List<AllTowns> listTowns = new List<AllTowns>();
-            List<Region> regions = colombia.Regions;
-            foreach (Region currentRegion in regions)
+            List<Gmaps_Management.Model.Region> regions = colombia.Regions;
+            foreach (Gmaps_Management.Model.Region currentRegion in regions)
             {
 
                 string region = currentRegion.name;
@@ -411,8 +407,8 @@ namespace Gmaps_Management
                 }
 
                 List<AllTowns> listTowns = new List<AllTowns>();
-                List<Region> regions = colombia.Regions;
-                foreach (Region currentRegion in regions)
+                List<Gmaps_Management.Model.Region> regions = colombia.Regions;
+                foreach (Gmaps_Management.Model.Region currentRegion in regions)
                 {
 
                     string region = currentRegion.name;
@@ -478,33 +474,44 @@ namespace Gmaps_Management
         {
 
             // pido latitud y longitud
-            double latitud = double.Parse(txtLatitud.Text);
-           txtLatitud.Text = "";
-            double longitud = double.Parse(txtLongitud.Text);
-           txtLongitud.Text = "";
+            try
+            {
+                double latitud = double.Parse(txtLatitud.Text);
+                txtLatitud.Text = "";
+                double longitud = double.Parse(txtLongitud.Text);
+                txtLongitud.Text = "";
 
-            txtSaveCoordenates.Text = "Latitud: "+ latitud + "   Longitud:" + longitud;
-            PointLatLng p = new PointLatLng(latitud, longitud);
-
-
-
-            if (cbMap.SelectedIndex == 0) {
-               // Console.WriteLine("entre");
-                points.Add(p);
-                addMarkers();
-
-                gMap.Position = new PointLatLng(latitud, longitud);
+                txtSaveCoordenates.Text = "Latitud: " + latitud + "   Longitud:" + longitud;
+                PointLatLng p = new PointLatLng(latitud, longitud);
 
 
-            } else if (cbMap.SelectedIndex==1){
-                poligonos.Add(p);
-                addPolygons();
+
+                if (cbMap.SelectedIndex == 0)
+                {
+                    // Console.WriteLine("entre");
+                    points.Add(p);
+                    addMarkers();
+
+                    gMap.Position = new PointLatLng(latitud, longitud);
+
+
+                }
+                else if (cbMap.SelectedIndex == 1)
+                {
+                    poligonos.Add(p);
+                    addPolygons();
+
+                }
 
             }
+            catch(FormatException t)
+            {
+                Console.WriteLine(t.Message);
+            }
 
-                
-            
-           
+
+
+
         }
 
         private void txBoxload2_TextChanged(object sender, EventArgs e)

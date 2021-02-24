@@ -1,5 +1,5 @@
 ﻿
-namespace Gmaps_Management
+namespace Gmaps_Management.Gui
 {
     partial class Form2
     {
@@ -63,6 +63,7 @@ namespace Gmaps_Management
             this.GraphicBar.Size = new System.Drawing.Size(528, 569);
             this.GraphicBar.TabIndex = 0;
             this.GraphicBar.Text = "chart1";
+            this.GraphicBar.Click += new System.EventHandler(this.GraphicBar_Click);
             // 
             // pointChar3
             // 
