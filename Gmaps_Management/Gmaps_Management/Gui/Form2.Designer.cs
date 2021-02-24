@@ -101,7 +101,6 @@ namespace Gmaps_Management.Gui
             this.PieChart.Size = new System.Drawing.Size(440, 569);
             this.PieChart.TabIndex = 2;
             this.PieChart.Text = "chart3";
-            this.PieChart.Click += new System.EventHandler(this.PieChart_Click);
             // 
             // Graficas
             // 

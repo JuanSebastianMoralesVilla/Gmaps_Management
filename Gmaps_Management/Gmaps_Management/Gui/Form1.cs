@@ -130,9 +130,12 @@ namespace Gmaps_Management.Gui
                 dataGridView1.DataSource = towns;
                 drawOnMap(towns);
                 cbFilter1.Visible = true;
-                Console.WriteLine("ESTO ESTA RARO");
                 cb_initialization();
+<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
 
+=======
+                
+>>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
             }
             catch (Exception alm)
             {
@@ -168,19 +171,26 @@ namespace Gmaps_Management.Gui
 
         }
 
-        // boton para que aparezcan los municipios
+
+        
+
+
+                       // boton para que aparezcan los municipios
         private void button2_Click(object sender, EventArgs e)
         {
+            
             markers.IsVisibile = true;
+           // polygons.IsVisibile = true;
         }
 
         // limpiar elementos de gmaps
         private void button2_Click_1(object sender, EventArgs e)
         {
-            markers.IsVisibile=false;
-            polygons.IsVisibile = false;
+            markers.IsVisibile = false;
+            polygons.Clear();
+            //polygons.IsVisibile = false;
             txtSaveCoordenates.Clear();
-            
+
         }
 
         private void cbFilter1_SelectedIndexChanged(object sender, EventArgs e)
@@ -353,9 +363,6 @@ namespace Gmaps_Management.Gui
                 if(latitud ==0 && longitud == 0)
                 {
                     point =  OpenStreet4UMapProvider.Instance.GetPoint(f, out statusCode);
-                    //town.latitud = point.Value.Lat;
-                    //town.longitud = point.Value.Lng;
-                    
                 }
                 else
                 {
@@ -474,18 +481,26 @@ namespace Gmaps_Management.Gui
         {
 
             // pido latitud y longitud
+<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
             try
             {
                 double latitud = double.Parse(txtLatitud.Text);
                 txtLatitud.Text = "";
                 double longitud = double.Parse(txtLongitud.Text);
                 txtLongitud.Text = "";
+=======
+            double latitud = Double.Parse(Regex.Replace(txtLatitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+           txtLatitud.Text = "";
+            double longitud = Double.Parse(Regex.Replace(txtLongitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
+            txtLongitud.Text = "";
+>>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
 
                 txtSaveCoordenates.Text = "Latitud: " + latitud + "   Longitud:" + longitud;
                 PointLatLng p = new PointLatLng(latitud, longitud);
 
 
 
+<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
                 if (cbMap.SelectedIndex == 0)
                 {
                     // Console.WriteLine("entre");
@@ -493,8 +508,21 @@ namespace Gmaps_Management.Gui
                     addMarkers();
 
                     gMap.Position = new PointLatLng(latitud, longitud);
+=======
+            if (cbMap.SelectedIndex == 0) {
+               // Console.WriteLine("entre");
+                points.Add(p);
+                addMarkers();
+            
+                gMap.Position = new PointLatLng(latitud, longitud);
+>>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
 
+                if (!markers.IsVisibile)
+                {
+                    markers.IsVisibile = true;
+                }
 
+<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
                 }
                 else if (cbMap.SelectedIndex == 1)
                 {
@@ -503,6 +531,13 @@ namespace Gmaps_Management.Gui
 
                 }
 
+=======
+            } else if (cbMap.SelectedIndex==1){
+                poligonos.Add(p);
+                addPolygons();
+                
+                gMap.Position = new PointLatLng(latitud, longitud);
+>>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
             }
             catch(FormatException t)
             {
@@ -512,9 +547,22 @@ namespace Gmaps_Management.Gui
 
 
 
+<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
+=======
+
+
+            
+            
+           
+>>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
         }
 
         private void txBoxload2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

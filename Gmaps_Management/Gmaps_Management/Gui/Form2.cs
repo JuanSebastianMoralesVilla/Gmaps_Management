@@ -105,6 +105,7 @@ namespace Gmaps_Management.Gui
             PieChart.Series["Series3"].Points[1].LegendText = "Poblacion Total";
             PieChart.Series["Series3"].Points[1].Label = "" + total;
         }
+<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form2.cs
         private void chart1_Click(object sender, EventArgs e)
         {
 
@@ -119,5 +120,8 @@ namespace Gmaps_Management.Gui
         {
 
         }
+=======
+
+>>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form2.cs
     }
 }
