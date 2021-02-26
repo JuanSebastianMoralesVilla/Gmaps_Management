@@ -3,6 +3,13 @@
 Description <br>
 - It was made with C# and Windows Forms.
 - Uses GMaps.
+
+
+The project presents a dataset of COVID cases by municipality in Colombia, showing information such as codes, departments, coordinates, population, region, etc.
+This dataset can be filtered by 3 criteria, categorical by region, string by municipality name and numeric by a range between COVID cases, in addition to displaying different statistical graphs.
+
+On the other hand it has a map for georeferencing, where the markers of the country's municipalities are located, in addition you can add other markers and polygons that will automatically appear on the map.
+
 ## Developers:
 - [*Juan Sebastian Morales*](https://github.com/JuanSebastianMoralesVilla)<br>
 - [*Santiago Hurtado*](https://github.com/YoNoSoySantiago)<br>
