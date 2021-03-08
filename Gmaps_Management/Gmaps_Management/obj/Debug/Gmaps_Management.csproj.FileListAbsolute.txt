@@ -40,3 +40,17 @@ E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Deb
 C:\Users\user\Desktop\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Form2.resources
 E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Gui.Form1.resources
 E:\ICESI\Integrador I\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Gui.Form2.resources
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csprojAssemblyReference.cache
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Gui.Form1.resources
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Gui.Form2.resources
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.Properties.Resources.resources
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.GenerateResource.cache
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CoreCompileInputs.cache
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.exe
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.pdb
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.exe.config
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.exe
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\Gmaps_Management.pdb
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.Core.dll
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\bin\Debug\GMap.NET.WindowsForms.dll
+C:\Users\Miguel Sarasti\Source\Repos\Gmaps_Management\Gmaps_Management\Gmaps_Management\obj\Debug\Gmaps_Management.csproj.CopyComplete

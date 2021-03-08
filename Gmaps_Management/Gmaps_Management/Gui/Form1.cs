@@ -131,11 +131,6 @@ namespace Gmaps_Management.Gui
                 drawOnMap(towns);
                 cbFilter1.Visible = true;
                 cb_initialization();
-<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
-
-=======
-                
->>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
             }
             catch (Exception alm)
             {
@@ -481,26 +476,16 @@ namespace Gmaps_Management.Gui
         {
 
             // pido latitud y longitud
-<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
             try
             {
-                double latitud = double.Parse(txtLatitud.Text);
+                double latitud = Double.Parse(Regex.Replace(txtLatitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
                 txtLatitud.Text = "";
-                double longitud = double.Parse(txtLongitud.Text);
+                double longitud = Double.Parse(Regex.Replace(txtLongitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
                 txtLongitud.Text = "";
-=======
-            double latitud = Double.Parse(Regex.Replace(txtLatitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
-           txtLatitud.Text = "";
-            double longitud = Double.Parse(Regex.Replace(txtLongitud.Text, "[.,]", CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator));
-            txtLongitud.Text = "";
->>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
 
                 txtSaveCoordenates.Text = "Latitud: " + latitud + "   Longitud:" + longitud;
                 PointLatLng p = new PointLatLng(latitud, longitud);
 
-
-
-<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
                 if (cbMap.SelectedIndex == 0)
                 {
                     // Console.WriteLine("entre");
@@ -508,53 +493,25 @@ namespace Gmaps_Management.Gui
                     addMarkers();
 
                     gMap.Position = new PointLatLng(latitud, longitud);
-=======
-            if (cbMap.SelectedIndex == 0) {
-               // Console.WriteLine("entre");
-                points.Add(p);
-                addMarkers();
-            
-                gMap.Position = new PointLatLng(latitud, longitud);
->>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
+                    if (!markers.IsVisibile)
+                    {
+                        markers.IsVisibile = true;
+                    }
 
-                if (!markers.IsVisibile)
-                {
-                    markers.IsVisibile = true;
-                }
-
-<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
                 }
                 else if (cbMap.SelectedIndex == 1)
                 {
                     poligonos.Add(p);
                     addPolygons();
-
                 }
-
-=======
-            } else if (cbMap.SelectedIndex==1){
-                poligonos.Add(p);
-                addPolygons();
                 
-                gMap.Position = new PointLatLng(latitud, longitud);
->>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
             }
-            catch(FormatException t)
+            catch (FormatException t)
             {
                 Console.WriteLine(t.Message);
             }
 
 
-
-
-<<<<<<< HEAD:Gmaps_Management/Gmaps_Management/Gui/Form1.cs
-=======
-
-
-            
-            
-           
->>>>>>> 2ddac05e885804ed8ebbde7ba19b75962d7fe0b3:Gmaps_Management/Gmaps_Management/Form1.cs
         }
 
         private void txBoxload2_TextChanged(object sender, EventArgs e)
